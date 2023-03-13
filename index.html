@@ -5,27 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Array Playground</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Array Playground</h1>
     <div id="input">
-        <p>Array Goes here</p>
+        <textarea id="arrField">Array Goes here</textarea>
     </div>
-    <input type="button" onclick="instantiate()" value="Click here to insert your array">
-    <input type="button" onclick="viewLength()" value="View array length">
+    <div>
+        <input type="button" class="button" id="insertArr" value="Click here to insert your array">
+        <input type="button" class="button" id="viewArrLength" value="View array length">
+    </div>
     <!-- <input type="button" onclick="arrFromString()" value="Array from string"> -->
-    <br>
-    <h3>Insert Element</h3>
-    <input type="button" onclick="addElementBegin()" value="Insert at beginning">
-    <input type="button" onclick="addElementEnd()" value="Insert at end">
+    <div>
+        <h3>Insert Element</h3>
+        <input type="button" class="button" id="insertAtBeginning" value="Insert at beginning">
+        <input type="button" class="button" id="insertAtEnd" value="Insert at end">
+    </div>
+    
+    <div>
+        <h3>Remove Element</h3>
+        <input type="button" class="button" id="removeAtBeginning" value="Remove at beginning">
+        <input type="button" class="button" id="removeAtEnd" value="Remove at end">
+    </div>
 
-    <h3>Remove Element</h3>
-    <input type="button" onclick="removeElementBegin()" value="Remove at beginning">
-    <input type="button" onclick="removeElementEnd()" value="Remove at end">
-
-    <h3>Manipulate</h3>
-    <input type="button" onclick="changeValue()" value="Change Element Value">
+    <div>
+        <h3>Manipulate</h3>
+        <input type="button" class="button" id="changeValue"  value="Change Element Value">
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,76 +1,92 @@
-var userArr =  new Array();
+// Variables for different buttons
+const insertArr = document.querySelector('#insertArr');
+const viewArrLength = document.querySelector('#viewArrLength');
+const insertAtBeginning = document.querySelector('#insertAtBeginning');
+const insertAtEnd = document.querySelector('#insertAtEnd');
+const removeAtBeginning = document.querySelector('#removeAtBeginning');
+const removeAtEnd = document.querySelector('#removeAtEnd');
+const changeValue = document.querySelector('#changeValue');
+
+const arrField = document.querySelector('#arrField');
+
+
+
+var userArr = new Array();
 
 //function to update view array
 function showArr(){
-    arrayDisplay = document.getElementById("input"); 
-    arrayDisplay.innerHTML = userArr;
+    arrField.innerText = userArr;
 }
 
 //instantiate the array
-function instantiate(){
+insertArr.addEventListener('click',()=>{
     var userarrlength = window.prompt("Please enter your array length");
 
     if (userarrlength <= 0){
         window.alert("please enter a valid value")
+    }else{
+        for(var i = 0;i <= userarrlength-1; i++){
+            userArr[i] = window.prompt("Enter element "+ i +":");
+        }
+        window.alert("Array is complete\nThank You");
+    
+        var text = "";
+        for (i=0;i<userArr.length;i++){
+            text += userArr[i] + "\n";
+        }
+        window.alert(text);
     }
-    for(var i = 0;i <= userarrlength-1; i++){
-        userArr[i] = window.prompt("Enter element "+ i +":");
-    }
-    window.alert("Array is complete\nThank You");
-
-    var text = "";
-    for (i=0;i<userArr.length;i++){
-        text += userArr[i] + "\n";
-    }
-    window.alert(text);
+    
     showArr();
-}
+});
 
-//View array length
-function viewLength(){
+//View Length of the Array
+viewArrLength.addEventListener('click',()=>{
     if(userArr == 0){
         window.alert("Array is empty");
     }else{
         let length = userArr.length;
         window.alert("Array length is " + length);
     }
+});
 
-}
 
-   
 //Add new element at the beginning of the array
-function addElementBegin(){
+insertAtBeginning.addEventListener('click',()=>{
     var insert = window.prompt("Enter your element");
     
     userArr.unshift(insert);
     showArr();
-}
+});
 
 //Add new element at the end of the array
-function addElementEnd(){
+insertAtEnd.addEventListener('click',()=>{
     var insert = window.prompt("Enter your element");
     
     userArr.push(insert);
     showArr();
-}
+});
+
 
 //Remove element at the beginning of the array
-function removeElementBegin(){
+removeAtBeginning.addEventListener('click',()=>{
     var removed = userArr.shift();
     showArr();
 
     window.alert("You have removed "+ removed);
-}
+});
+
 
 //Remove element at the end of the array
-function removeElementEnd(){
+removeAtEnd.addEventListener('click',()=>{
     var removed = userArr.pop();
     showArr();
 
     window.alert("You have removed "+ removed);
-}
+});
 
-function changeValue(){
+//Change A value at a certain point
+changeValue.addEventListener('click',()=>{
     if(userArr == 0){
         window.alert("Array is empty");
     }else{
@@ -81,8 +97,9 @@ function changeValue(){
     }
 
     showArr();
-}
+});
 
+/*
 function arrFromString(){
     var stringArr = window.prompt("Please enter a sentence");
 
@@ -91,3 +108,4 @@ function arrFromString(){
         console.log("Word " + i + "= " + words[i]);
     }
 }
+ */

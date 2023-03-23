@@ -1,11 +1,13 @@
 // Hide buttons onload
 const arrButtons = document.querySelector('#arrayButtons');
 const stringButtons = document.querySelector('#stringButtons');
+const newstringBtn = document.querySelector('#newString');
 
 
 document.addEventListener('DOMContentLoaded', function(){
     arrButtons.style.display = 'none';
     stringButtons.style.display = 'none';
+    newstringBtn.style.display = 'none';
     viewArrLength.disabled = true;
 });
 
@@ -50,7 +52,7 @@ insertArr.addEventListener('click',()=>{
     var userarrlength = window.prompt("Please enter your array length");
 
     if (userarrlength <= 0 || userarrlength == ''){
-        window.alert("please enter a valid value")
+        window.alert("please enter a valid value");
     }else{
         for(var i = 0;i <= userarrlength-1; i++){
             userArr[i] = window.prompt("Enter element "+ i +":");
@@ -64,6 +66,7 @@ insertArr.addEventListener('click',()=>{
         window.alert(text);
         viewArrLength.disabled = false;
         arrButtons.style.display = 'block';
+        stringButtons.style.display = 'none'
     }
     
     showArr();
@@ -134,8 +137,6 @@ insertString.addEventListener('click',()=>{
     if(stringTextBx.value === '' || stringTextBx.value == ' '){
         alert("String is empty\nPlease try again");
     }else{
-        const arrPlayground = document.querySelector('#ArrayPlayground');
-
         alert('String confirmed as: ' + stringTextBx.value);
         stringTextBx.disabled = true;
         stringTextBx.style.color = '#000';
@@ -143,9 +144,18 @@ insertString.addEventListener('click',()=>{
 
         arrButtons.style.display = 'none';
         stringButtons.style.display = 'block';
+        insertString.style.display = 'none';
+        newstringBtn.style.display = 'inline';
         viewArrLength.disabled = true;
     }
 });
+
+newstringBtn.addEventListener('click',()=>{
+    stringTextBx.value = '';
+    newstringBtn.style.display ='none';
+    insertString.style.display = 'inline';
+    stringTextBx.disabled = false;
+})
 
 toUpper.addEventListener('click',()=>{
     stringTextBx.style.textTransform = 'uppercase';
@@ -202,14 +212,24 @@ reverseString.addEventListener('click',()=>{
 });
 
 maskString.addEventListener('click',()=>{
-    if(stringTextBx.value.length>=4){
-        let newStr = '';
-        let lastTwo = stringTextBx.value.slice(-3);
-        for(let i=1;i<=stringTextBx.value.length-3;i++){
-            newStr += '#';
+    const result = confirm("If you mask the string you won't be able to unmask\nAre you sure you want to continue?");
+
+    if (result === true) {
+        if(stringTextBx.value.length>=4){
+            let newStr = '';
+            let lastTwo = stringTextBx.value.slice(-3);
+            for(let i=1;i<=stringTextBx.value.length-3;i++){
+                newStr += '#';
+            }
+            stringTextBx.value = newStr + lastTwo;
+
+            stringButtons.style.display = 'none';
+            
+        }else{
+            alert('String is to short to mask')
         }
-        stringTextBx.value = newStr + lastTwo;
-    }else{
-        alert('String is to short to mask')
-    }
+      } else {
+        alert("You clicked Cancel.");
+      }
+    
 });

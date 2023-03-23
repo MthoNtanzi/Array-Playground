@@ -12,31 +12,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Array Playground</h1>
-    <div id="input">
-        <textarea id="arrField">Array Goes here</textarea>
-    </div>
-    <div>
-        <input type="button" class="button" id="insertArr" value="Click here to insert your array">
-        <input type="button" class="button" id="viewArrLength" value="View array length">
-    </div>
-    <!-- <input type="button" onclick="arrFromString()" value="Array from string"> -->
-    <div>
-        <h3>Insert Element</h3>
-        <input type="button" class="button" id="insertAtBeginning" value="Insert at beginning">
-        <input type="button" class="button" id="insertAtEnd" value="Insert at end">
-    </div>
-    
-    <div>
-        <h3>Remove Element</h3>
-        <input type="button" class="button" id="removeAtBeginning" value="Remove at beginning">
-        <input type="button" class="button" id="removeAtEnd" value="Remove at end">
-    </div>
+    <section id="ArrayPlayground">
+        <h1>Array Playground</h1>
+        <div id="input">
+            <textarea id="arrField">Array Goes here</textarea>
+        </div>
+        <div>
+            <input type="button" class="button" id="insertArr" value="Click here to insert your array">
+            <input type="button" class="button" id="viewArrLength" value="View array length">
+        </div>
+       
+        <div>
+            <h2>Insert Element</h2>
+            <input type="button" class="button" id="insertAtBeginning" value="Insert at beginning">
+            <input type="button" class="button" id="insertAtEnd" value="Insert at end">
+        </div>
+        
+        <div>
+            <h2>Remove Element</h2>
+            <input type="button" class="button" id="removeAtBeginning" value="Remove at beginning">
+            <input type="button" class="button" id="removeAtEnd" value="Remove at end">
+        </div>
 
-    <div>
-        <h3>Manipulate</h3>
-        <input type="button" class="button" id="changeValue"  value="Change Element Value">
-    </div>
+        <div>
+            <h2>Manipulate</h2>
+            <input type="button" class="button" id="changeValue"  value="Change Element Value">
+        </div>
+    </section>
+    <section>
+        <h1>Now lets play with strings</h1>
+        <div class="stringInput">
+            <input type="text" placeholder="Enter Your string" id="stringTextBx">
+            <input type="button" value="Accept" class="button" id="acceptString">
+        </div>
+        <section>
+            <div>
+                <h2>Case</h2>
+                <input type="button" class="button" id="toUpperCase" value="Convert To Upper Case">
+                <input type="button" class="button" id="toLowerCase" value="Convert To Lower Case">
+            </div>
+            <div>
+                <h2>Misc.</h2>
+                <input type="button" class="button" id="stringLength" value="View string length">
+                <input type="button" class="button" id="nthLetter" value="View nth Letter">
+                <br/>
+                <input type="button" class="button" id="findLetter" value="Find Letter">
+                <input type="button" class="button" id="changeNthLetter" value="Change nth letter">
+                <br/>
+                <input type="button" class="button" id="reverseString" value="Reverse String">
+                <input type="button" class="button" id="maskString" value="Mask String">
+            </div>
+        </section>
+
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

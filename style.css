@@ -21,7 +21,7 @@ div{
 }
 
 #arrField{
-    width: 450px;
+    max-width: 450px;
     height: 100px;
     border: 5px inset;
     padding: 5px;
@@ -33,10 +33,23 @@ div{
     padding: .5rem;
     border-radius: 5px;
     border: 1px white solid;
-    transition: .5s;
+    width: 160px;
+    transition: .4s;
+    margin-right: 1.3rem;
+    margin-bottom: 1rem;
 }
 .button:hover{
     background-color: #000;
     color: #fff;
     transform: scale(1.2);
+}
+#stringTextBx{
+    height: 30px;
+    font-size: 20px;
+    font-weight:500;
+    margin: 1rem 1.3rem 0 0;
+}
+
+#ArrayPlayground{
+    /* display: none; */
 }

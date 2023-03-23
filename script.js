@@ -1,4 +1,9 @@
 // Variables for different buttons
+
+// Variables for the Array Playground
+// Array Field
+const arrField = document.querySelector('#arrField');
+// Buttons for Array Playground
 const insertArr = document.querySelector('#insertArr');
 const viewArrLength = document.querySelector('#viewArrLength');
 const insertAtBeginning = document.querySelector('#insertAtBeginning');
@@ -7,7 +12,20 @@ const removeAtBeginning = document.querySelector('#removeAtBeginning');
 const removeAtEnd = document.querySelector('#removeAtEnd');
 const changeValue = document.querySelector('#changeValue');
 
-const arrField = document.querySelector('#arrField');
+// Buttons for string playground
+// Textbox for the string
+const stringTextBx = document.querySelector('#stringTextBx');
+// Buttons for the playground
+const insertString = document.querySelector('#acceptString');
+// Buttons to manipulate the playground
+const toUpper = document.querySelector('#toUpperCase');
+const toLower = document.querySelector('#toLowerCase');
+const viewStringLenth = document.querySelector('#stringLength');
+const viewNthLetter = document.querySelector('#nthLetter');
+const findLetter = document.querySelector('#findLetter');
+const changeNthLetter = document.querySelector('#changeNthLetter');
+const reverseString = document.querySelector('#reverseString');
+const maskString = document.querySelector('#maskString');
 
 
 
@@ -99,13 +117,85 @@ changeValue.addEventListener('click',()=>{
     showArr();
 });
 
-/*
-function arrFromString(){
-    var stringArr = window.prompt("Please enter a sentence");
 
-    var words = stringArr.split(" ");
-    for(var i = 0;i<words.length; i++){
-        console.log("Word " + i + "= " + words[i]);
+// String Playground functions
+insertString.addEventListener('click',()=>{
+    if(stringTextBx.value === '' || stringTextBx.value == ' '){
+        alert("String is empty\nPlease try again");
+    }else{
+        const arrPlayground = document.querySelector('#ArrayPlayground');
+        arrPlayground.style.display = 'none';
+
+        alert('String confirmed as: ' + stringTextBx.value);
+        stringTextBx.disabled = true;
+        stringTextBx.style.color = '#000';
+        insertString.style.display = 'none';
     }
-}
- */
+});
+
+toUpper.addEventListener('click',()=>{
+    stringTextBx.style.textTransform = 'uppercase';
+});
+
+toLower.addEventListener('click',()=>{
+    stringTextBx.style.textTransform = 'lowercase';
+});
+
+viewStringLenth.addEventListener('click',()=>{
+    let newStr = stringTextBx.value;
+    alert("The string length is: " + newStr.length);
+});
+
+viewNthLetter.addEventListener('click',()=>{
+    let num = prompt('Which position is the letter');
+    if(num>stringTextBx.value.length){
+        alert("You are out of range");
+    }else{
+        alert("The letter at position " + num + " is: "+ stringTextBx.value[num-1]);
+    }
+});
+
+findLetter.addEventListener('click',()=>{
+    let letter = prompt('Which letter are you looking for:\nPlease be advised this search is case sensitive');
+
+    for(let i=0;i<stringTextBx.value.length; i++){
+        if(stringTextBx.value[i] === letter){
+            alert('The letter is found at position: ' + (i+1));
+        }
+    }
+});
+
+changeNthLetter.addEventListener('click',()=>{
+    let nthLetter = prompt('Enter postion of the letter you want to change?')
+    let newStr = [];
+    newStr =stringTextBx.value.split('');
+    let alter = prompt('What do you want to change the value with?');
+    newStr.splice(nthLetter-1,1,alter);
+
+    
+    stringTextBx.value = newStr.join('');
+
+});
+
+reverseString.addEventListener('click',()=>{
+    let newStr = '';
+  
+    //Get length of string then concatenate to new String
+    for(let i = stringTextBx.value.length-1;i>=0;i--){
+        newStr += stringTextBx.value[i];
+    }
+    stringTextBx.value = newStr;
+});
+
+maskString.addEventListener('click',()=>{
+    if(stringTextBx.value.length>=4){
+        let newStr = '';
+        let lastTwo = stringTextBx.value.slice(-3);
+        for(let i=1;i<=stringTextBx.value.length-3;i++){
+            newStr += '#';
+        }
+        stringTextBx.value = newStr + lastTwo;
+    }else{
+        alert('String is to short to mask')
+    }
+});

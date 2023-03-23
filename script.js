@@ -1,4 +1,13 @@
-// Variables for different buttons
+// Hide buttons onload
+const arrButtons = document.querySelector('#arrayButtons');
+const stringButtons = document.querySelector('#stringButtons');
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    arrButtons.style.display = 'none';
+    stringButtons.style.display = 'none';
+    viewArrLength.disabled = true;
+});
 
 // Variables for the Array Playground
 // Array Field
@@ -40,7 +49,7 @@ function showArr(){
 insertArr.addEventListener('click',()=>{
     var userarrlength = window.prompt("Please enter your array length");
 
-    if (userarrlength <= 0){
+    if (userarrlength <= 0 || userarrlength == ''){
         window.alert("please enter a valid value")
     }else{
         for(var i = 0;i <= userarrlength-1; i++){
@@ -53,6 +62,8 @@ insertArr.addEventListener('click',()=>{
             text += userArr[i] + "\n";
         }
         window.alert(text);
+        viewArrLength.disabled = false;
+        arrButtons.style.display = 'block';
     }
     
     showArr();
@@ -124,12 +135,15 @@ insertString.addEventListener('click',()=>{
         alert("String is empty\nPlease try again");
     }else{
         const arrPlayground = document.querySelector('#ArrayPlayground');
-        arrPlayground.style.display = 'none';
 
         alert('String confirmed as: ' + stringTextBx.value);
         stringTextBx.disabled = true;
         stringTextBx.style.color = '#000';
         insertString.style.display = 'none';
+
+        arrButtons.style.display = 'none';
+        stringButtons.style.display = 'block';
+        viewArrLength.disabled = true;
     }
 });
 
